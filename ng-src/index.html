@@ -1,0 +1,27 @@
+<html ng-app="directivaPers">
+<head>
+	<meta charset="utf-8" />
+	<title>ANGULARJS NG-src ng-cloak</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+	<script src="app.js"></script>
+	<style>
+	.circular{
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+	}
+	</style>
+</head>
+<body ng-controller="appControl">
+	<ul class="no-list" ng-cloak>
+		<li ng-repeat="repo in repos">
+			<h1>{{repo.name}}<h1>
+		<!--	<img ng-src="{{repo.owner.avatar_url}}"> -->
+
+		<!--	<div class="circular" style="background:url({{repo.owner.avatar_url}});background-position:center;background-size:cover;"></div> -->	<div class="circular" back-img="{{repo.owner.avatar_url}}"></div
+			
+		</li>
+	</ul>
+</body>
+</html>

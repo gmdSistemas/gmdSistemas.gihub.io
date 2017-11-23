@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="filtroModulo">
+<head>
+	<title>Angulart filtros</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js" ></script>
+		
+	<script src="controlador.js"></script>
+	</head>
+<body ng-controller="FiltroContralador">
+	<!--{{mi_html| removeHtml}} -->
+	{{mi_html | json}}
+	<br>
+	{{mi_html.costo | currency:'Bs' }}
+	<br>
+	{{}}
+
+
+</body>
+</html>

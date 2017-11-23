@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myModulo">
+<head>
+	<title>Ejemplo apply</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js" ></script>
+	<script>
+		angular.module("myModulo",[])
+		.controller("miControl",function($scope){
+			$scope.nombre="DARWIN";
+			$scope.nombreOtro="otro nombre";
+			$scope.nombre_ng="Forma Angular";
+			setTimeout(function(){
+				//$scope.nombre="Curso Facilito";
+				console.log("valor viejo",$scope.nombre);
+			//esta forma es incorrecta por exite apply	$scope.$digest(); //va por todo los watche y le pregunta al wachet de nombre
+			//$scope.$apply();
+			//la forma correcta es asi
+			//mandarle un funcion apply para que angular se entere y luego apply llama $digest
+			$scope.$apply(function(){
+				$scope.nombre=("curso facilito");
+				console.log("valor nuevo",$scope.nombre);
+
+			});
+
+			},2000);
+			//de esta forma se delega evento cuando no se usa jquery
+			document.querySelector("#mi_boton").addEventListener("click",function(){
+				$scope.$apply(function(){
+				$scope.nombreOtro=("curso otro  facilito");
+				console.log("valor otro boton",$scope.nombreOtro);
+
+			});
+
+			});
+
+		});
+
+	</script>
+</head>
+<body ng-controller="miControl">
+	<h1>{{nombre}}</h1>
+	<h2>{{nombreOtro}}</h2>
+	<h3>{{nombre_ng}}<h3>
+
+</body>
+<button id="mi_boton">Haz clic</button>
+<br>
+<button ng-click="nombre_ng='forma con angular'">haz clic angular</button>
+</html>

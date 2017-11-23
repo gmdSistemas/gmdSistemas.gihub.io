@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp1">
+<head>
+	<meta charset="utf-8" />
+	<title>Htpp ANGULARJS</title>
+	<style>
+		.animated{
+			opacity: 1;
+			max-height: auto;
+			overflow: hidden;
+			transition: all 2s;
+		}
+		.animated.ng-hide{
+			opacity: 0.1;
+			max-height: 0px !important;
+			overflow: hidden;
+			display: block !important;
+		}
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+	<script src="controlador.js"></script>
+</head>
+<body ng-controller="controluno">
+<!--<div ng-hide="posts.length>0"> cargando......{{10+10}}</div> -->
+
+<div ng-show="cargando"> cargando......{{10+10}}</div> 
+<div ng-show="!cargando && posts.length<=0"> No se encontraron resultados</div>
+
+
+	<ul ng-show="posts.length>0" class="animated">
+
+	<!--<ul ng-hide="posts.length==0" class="animated">-->
+		<li ng-repeat="post in posts">
+			<h2>{{post.title}}</h2>
+			<p>
+				{{post.body}}
+			</p>
+
+		</li>
+
+
+	</ul>
+</body>
+</html>
